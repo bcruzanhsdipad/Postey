@@ -7,7 +7,13 @@ Rails.application.routes.draw do
 
   get 'home/about'
 
-  root 'posts#index'
+  authenticated :user do
+	root 'posts#index', as: "authenticated_root"
+end  
+  
+  root 'home#welcome'
+end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -62,4 +68,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+
