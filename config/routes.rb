@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   get 'home/welcome'
 
   get 'home/contact'
